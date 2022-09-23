@@ -1,0 +1,24 @@
+import random
+import time
+pc_guessed = random.randint(1,100)
+
+start_time = time.time()
+user_guessed=0
+attempt = 0
+avg_diff = 0
+
+
+while pc_guessed != user_guessed:
+    user_guessed = int(input("ievadi savu minējumu: "))
+    attempt +=1
+    avg_diff += abs(pc_guessed - user_guessed)
+    if user_guessed > pc_guessed:
+        print("Pārāk liels, izvēlies mazāku!")
+    elif user_guessed <pc_guessed:
+        print("Pārāk mazs, izvēlies lielāku!")
+    else:
+        print("Tu uzminēji!")
+print("Mēģinājumu skaits: ",attempt)
+print("vidējā novirze:",avg_diff/attempt)
+
+print("Tu spēlēji %s sekundes " % (time.time()- start_time))
